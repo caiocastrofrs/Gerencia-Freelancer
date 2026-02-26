@@ -1,0 +1,17 @@
+:root {
+  --breakpoint-sm: 640px;   /* Tablets pequenos */
+  --breakpoint-md: 768px;   /* Tablets */
+  --breakpoint-lg: 1024px;  /* Desktop */
+  --breakpoint-xl: 1280px;  /* Desktop grande */
+  --breakpoint-2xl: 1536px; /* Desktop extra grande */
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  --grid-cols-mobile: 4;
+  --grid-cols-tablet: 8;
+  --grid-cols-desktop: 12;
+}

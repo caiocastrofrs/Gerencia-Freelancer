@@ -1,0 +1,20 @@
+.button {
+  /* Usando os tokens */
+  font-size: var(--text-button-base);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-inset-sm) var(--space-inset-md);
+  border-radius: var(--border-radius-button);
+  border: var(--border-width-1) solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.button--primary {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+}
+
+.button--primary:hover {
+  background-color: var(--color-brand-hover);
+  box-shadow: var(--shadow-button-hover);
+}

@@ -1,0 +1,22 @@
+@import './colors.css';
+@import './typography.css';
+@import './spacing.css';
+@import './borders.css';
+@import './shadows.css';
+@import './breakpoints.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
