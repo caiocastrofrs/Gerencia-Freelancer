@@ -12,7 +12,7 @@ app.use(async ctx => {
   // Second parameter adds Koa's context into GraphQL Context
   // If you use any body parsing middleware in your application,
   // Make sure it is `ctx.request` and not `ctx.req`
-  const response = await yoga.handleNodeRequestAndResponse(ctx.request, ctx.res, ctx)
+  const response = await yoga.handleNodeRequestAndResponse(ctx.req, ctx.res, ctx)
 
   // Set status code
   ctx.status = response.status
