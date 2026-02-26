@@ -8,4 +8,4 @@ Meu objetivo é desenvolver uma aplicação robusta Fullstack, seguindo as restr
 Frontend: React Relay, Jest, Storybook
 Backend: Node.js, Typescript, Koa, GraphQL Yoga (GraphQL Helix não recebe mais atualizações)
 
-Das tecnologias mencionadas, apenas tenho familiaridade com Node.js, Typescript Jest e Storybook, o resto precisarei estudar o básico em paralelo ao desenvolvimento.
+Das tecnologias mencionadas, apenas tenho familiaridade com Node.js, Typescript, Jest e Storybook, o resto precisarei estudar o básico em paralelo ao desenvolvimento.
