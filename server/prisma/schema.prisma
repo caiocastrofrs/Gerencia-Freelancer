@@ -12,3 +12,100 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Freelancer {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  email       String       @unique
+  name        String
+  password    String
+  contractors Contractor[]
+}
+
+model Contractor {
+  id            String     @id @default(cuid())
+  name          String
+  company_name  String
+  email         String
+  createdAt     DateTime   @default(now())
+  freelancer    Freelancer @relation(fields: [freelancer_id], references: [id])
+  freelancer_id String
+  projects      Project[]
+}
+
+enum ProjectStatus {
+  ACTIVE
+  PAUSED
+  FINISHED
+  CANCELLED
+}
+
+model Project {
+  id                   String        @id @default(cuid())
+  name                 String
+  hourly_rate          Decimal       @db.Decimal(10, 2)
+  status               ProjectStatus @default(ACTIVE)
+  estimated_hours      Int?
+  estimated_final_date DateTime?
+  createdAt            DateTime      @default(now())
+  contractor           Contractor    @relation(fields: [contractor_id], references: [id])
+  contractor_id        String
+  tasks                Task[]
+  invoices             Invoice[]
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum TaskStatus {
+  TODO
+  INPROGRESS
+  REVIEW
+  DONE
+}
+
+model Task {
+  id          String     @id @default(cuid())
+  title       String
+  description String?
+  priority    Priority   @default(NORMAL)
+  status      TaskStatus @default(TODO)
+  project     Project    @relation(fields: [project_id], references: [id])
+  project_id  String
+  timers      Timer[]
+}
+
+model Timer {
+  id         String    @id @default(cuid())
+  start_time DateTime
+  end_time   DateTime?
+  duration   Int?
+  isBilled   Boolean   @default(false)
+  task       Task      @relation(fields: [task_id], references: [id])
+  task_id    String
+  invoice    Invoice?  @relation(fields: [invoiceId], references: [id])
+  invoiceId  String?
+}
+
+enum InvoiceStatus {
+  RASCUNHO
+  ENVIADA
+  PAGA
+  VENCIDA
+  CANCELADA
+}
+
+model Invoice {
+  id           String        @id @default(cuid())
+  number       Int           @unique @default(autoincrement())
+  status       InvoiceStatus @default(RASCUNHO)
+  total_amount Decimal       @db.Decimal(10, 2)
+  createdAt    DateTime      @default(now())
+  project      Project       @relation(fields: [project_id], references: [id])
+  project_id   String
+  timers       Timer[]
+}
