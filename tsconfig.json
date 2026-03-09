@@ -39,7 +39,8 @@
     "noEmit": true
   },
   "include": [
-    "src/**/*.ts"
+    "./client/src/**/*.ts",
+    "./server/src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
